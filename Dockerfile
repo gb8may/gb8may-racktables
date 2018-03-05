@@ -8,7 +8,7 @@ RUN curl -L -o RackTables-latest.zip 'http://sourceforge.net/projects/racktables
 RUN unzip RackTables-latest.zip
 
 #Preparing Environment
-RUN cd $(find -type d -name 'RackTables-latest.zip') && rmdir /var/www/html && cp -a wwwroot /var/www/html
+RUN cd $(find -type d -name 'RackTables-*') && rmdir /var/www/html && cp -a wwwroot /var/www/html
 RUN touch /var/www/html/inc/secret.php && chmod 666 /var/www/html/inc/secret.php
 ADD init.sql /usr/local/share/racktables/init.sql
 ADD chsecret.sh /usr/local/share/racktables/secretfile.sh
