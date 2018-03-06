@@ -1,11 +1,11 @@
 FROM centos:centos6
 
 #Packages Install
-RUN yum install -y unzip php php-mysql php-pdo php-gd php-mbstring php-bcmath httpd tar
+RUN yum install -y tar php php-mysql php-pdo php-gd php-mbstring php-bcmath httpd tar
 
 #Download and unzip Racktables
-RUN curl -L -o RackTables-latest.zip 'http://sourceforge.net/projects/racktables/files/latest/download?source=files'
-RUN unzip RackTables-latest.zip
+RUN curl -L -o RackTables-latest.tar.gz 'http://sourceforge.net/projects/racktables/files/latest/download?source=files'
+RUN tar zxf RackTables-latest.tar.gz
 
 #Preparing Environment
 RUN cd $(find -type d -name 'RackTables-*') && rmdir /var/www/html && cp -a wwwroot /var/www/html
